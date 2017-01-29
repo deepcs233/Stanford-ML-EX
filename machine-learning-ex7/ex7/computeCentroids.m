@@ -26,9 +26,14 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
+for i =1:K,
+    new = (idx==i);
+    total = sum(new,1);
+    new = repmat(new,1,size(X,2));
 
-
-
+    t = sum(new.*X,1)./total;
+    centroids(i,:)=t;
+end;
 
 
 

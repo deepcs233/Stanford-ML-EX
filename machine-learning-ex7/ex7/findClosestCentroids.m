@@ -26,7 +26,7 @@ for i = 1:m,
     minium = 999999999;
     minidx=0;
     for j = 1:K,
-        dis =( X(i,1)-centroids(j,1))^2+( X(i,2)-centroids(j,2))^2;
+        dis =(X(i,:)-centroids(j,:))*(X(i,:)-centroids(j,:))';
         if dis < minium,
             minium = dis;
             minidx = j;
