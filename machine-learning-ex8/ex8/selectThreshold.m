@@ -26,8 +26,13 @@ for epsilon = min(pval):stepsize:max(pval)
 
 
 
-
-
+    cvPrediction = pval<epsilon;
+    tp = sum((cvPrediction == 1) & (yval == 1));
+    fp = sum((cvPrediction == 1) & (yval == 0));
+    fn = sum((cvPrediction == 0) & (yval == 1));
+    precision = tp/(tp+fp);
+    recision = tp/(tp+fn);
+    F1 = (2*precision*recision)/(precision+recision);
 
 
 
